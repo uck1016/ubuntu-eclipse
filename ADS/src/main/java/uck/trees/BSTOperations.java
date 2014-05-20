@@ -48,16 +48,16 @@ public class BSTOperations {
 			return	Search(x,root.right);
 		}
 		}
-	public Node delete(int x, Node root){
+	public Node delete(int x, Node head){
 		Node temp, p,q;
-		if(root==null){ 
+		if(head==null){ 
 			System.out.println("tree is empty\n");
 			return null;
 		}
-		else if(x==root.key){
+		else if(x==head.key){
 			Node lt,rt;
-			lt=root.left;
-			rt=root.right;
+			lt=head.left;
+			rt=head.right;
 			if(lt==null &&rt==null){
 				System.out.println("no children\n");
 				return null;
@@ -73,22 +73,25 @@ public class BSTOperations {
 			else{
 				temp=rt;
 				p=rt;
-				while(p.left!=null){
-					p=p.left;
+				while(temp.left!=null){
+					p=temp;
+					temp=temp.left;
 				}
-				p.left=lt;
+				temp.left=lt;
+				p.left=null;
 				return temp;
 			}
 		}
-		if(x<root.key){
-			q= delete(x, root.left);
-			root.left=q;
+		if(x<head.key){
+			q= delete(x, head.left);
+			head.left=q;
 		}
 		else{
-			q=delete(x,root.right);
-			root.right=q;
+			q=delete(x,head.right);
+			head.right=q;
 		}
-		return root;
+		System.out.println("***"+head.key);
+		return head;
 	}
 
 }

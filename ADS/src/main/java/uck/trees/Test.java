@@ -39,7 +39,7 @@ public class Test {
 			Node t=Obj.Search(value, Obj.root);
 			if(t!=null){
 			Obj.root=Obj.delete(value, Obj.root);
-			System.out.println("Node "+ value+" is successfully deleted\n");
+			System.out.println("Node "+ value+" successfully deleted\n");
 			}
 			else{
 				System.out.println("Element not found\n");
