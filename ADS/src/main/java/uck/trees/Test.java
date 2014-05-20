@@ -23,10 +23,10 @@ public class Test {
 			System.exit(0);
 		}
 		else if(choice.equals("t")){
-			Obj.traverse(Obj.head);
+			Obj.inOrderTraversel(Obj.root);
 		}
 		else if(choice.equals("s")){
-			Node x=Obj.Search(getInput(),Obj.head);
+			Node x=Obj.Search(getInput(),Obj.root);
 			if(x==null){
 				System.out.println("Element not found\n");
 			}
@@ -36,9 +36,9 @@ public class Test {
 		}
 		else if(choice.equals("d")){
 			int value=getInput();
-			Node t=Obj.Search(value, Obj.head);
+			Node t=Obj.Search(value, Obj.root);
 			if(t!=null){
-			Obj.head=Obj.delete(value, Obj.head);
+			Obj.root=Obj.delete(value, Obj.root);
 			System.out.println("Node "+ value+" is successfully deleted\n");
 			}
 			else{

@@ -1,11 +1,11 @@
 package uck.trees;
 
 public class BSTOperations {
-	Node head;
+	Node root;
 	public void insert (int x)
 	{
 		Node newNode= new Node(x);
-		Node p= head;
+		Node p= root;
 		Node q=null;
 		while(p!=null)
 		{
@@ -17,9 +17,9 @@ public class BSTOperations {
 				p=p.right;
 			}
 		}
-		if(head==null)
+		if(root==null)
 		{
-			head=newNode;
+			root=newNode;
 		}
 		else if(newNode.key<q.key){
 			q.left=newNode;
@@ -29,11 +29,11 @@ public class BSTOperations {
 		}
 		System.out.println("insertion successful");
 	}
-	public void traverse(Node x){
+	public void inOrderTraversel(Node x){
 		if(x!=null){
-			traverse(x.left);
+			inOrderTraversel(x.left);
 			System.out.println("\t"+x.key);
-			traverse(x.right);
+			inOrderTraversel(x.right);
 		}
 	}
 	public Node Search(int x, Node root){
