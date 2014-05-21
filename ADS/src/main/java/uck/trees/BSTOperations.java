@@ -36,12 +36,14 @@ public class BSTOperations {
 			inOrderTraversel(x.right);
 		}
 	}
-	public Node Search(int x, Node root){
-		if(root==null||root.key==x){
-			return root;
+	public boolean Search(int x, Node root){
+		if(isEmpty()||root==null){
+			return false;
+		}
+		if(root.key==x){
+			return true;
 		}
 	    if(x<root.key){
-			System.out.println("in****");
 			return Search(x,root.left);
 		}
 		else{
@@ -50,8 +52,7 @@ public class BSTOperations {
 		}
 	public Node delete(int x, Node head){
 		Node temp, p,q;
-		if(head==null){ 
-			System.out.println("tree is empty\n");
+		if(isEmpty()){ 
 			return null;
 		}
 		else if(x==head.key){
@@ -90,8 +91,69 @@ public class BSTOperations {
 			q=delete(x,head.right);
 			head.right=q;
 		}
-		System.out.println("***"+head.key);
 		return head;
+	}
+	public Node LeastCommonAncestor(Node n1, Node n2){
+		Node temp,temp1, higher, lower;
+		temp= temp1=root;
+		if(isEmpty()){
+			return null;
+		}
+		if(!notParent(root,n1,n2)||n1.equals(root)||n2.equals(root)){
+			return null;
+		}
+		if(n1.key>root.key && n2.key>root.key){
+			return root;
+		}
+		else if(n1.key<root.key && n2.key<root.key){
+			if(n1.key>n2.key){
+				higher= n1;
+				lower=n2;
+			}
+			else if(n1.key<n2.key){
+				higher=n2;
+				lower=n1;
+			}
+			else{
+				higher=lower=n1;
+			}
+			while(notParent(temp,n1,n2)){
+				temp1=temp;
+				if(lower.key>temp.key){
+					break;
+				}
+				else if(higher.key<temp.key){
+					temp=temp.left;
+				}
+				else{
+					break;
+				}
+			}	
+		}
+		return temp1;
+	}
+	private boolean notParent(Node temp, Node n1, Node n2) {
+		
+		Node lt,rt;
+		lt=temp.left;
+		rt=temp.right;
+		if(lt!=null){
+		if(lt.equals(n1)||lt.equals(n2)){
+			return false;
+		}
+		}
+		if(rt!=null){
+			if(rt.equals(n1)||rt.equals(n2)){
+				return false;
+			}
+		}
+		return true;
+	}
+	public boolean isEmpty(){
+		if(root==null){
+			return true;
+		}
+		return false;
 	}
 
 }
