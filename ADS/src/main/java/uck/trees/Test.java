@@ -23,7 +23,7 @@ public class Test {
 			System.exit(0);
 		}
 		else if(choice.equals("t")){
-			Obj.inOrderTraversel(Obj.root);
+			Obj.preOrderTraversel(Obj.root);
 		}
 		else if(choice.equals("s")){
 			int x=getInput();
