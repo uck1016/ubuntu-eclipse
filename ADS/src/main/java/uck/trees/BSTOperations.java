@@ -43,6 +43,13 @@ public class BSTOperations {
 			preOrderTraversel(x.right);
 		}
 	}
+	public void postOrderTraversel(Node x){
+		if(x!=null){
+			postOrderTraversel(x.left);
+			postOrderTraversel(x.right);
+			System.out.println("\t"+x.key);
+		}
+	}
 	public boolean Search(int x, Node root){
 		if(isEmpty()||root==null){
 			return false;
@@ -101,7 +108,7 @@ public class BSTOperations {
 		return head;
 	}
 	public Node LeastCommonAncestor(Node n1, Node n2){
-		Node temp,temp1;
+		Node temp;
 		temp=root;
 		int found=0;
 		if(isEmpty()){
@@ -125,6 +132,44 @@ public class BSTOperations {
 			return true;
 		}
 		return false;
+	}
+	public void toPostOrder(int[] preOrder) {
+		int head=preOrder[0], j=0, k=0;
+		int length=preOrder.length;
+		for(int i=0;i<length;i++){
+			if(preOrder[i]<head){
+				j++;
+			}
+			else if(preOrder[i]>head){
+				k++;
+			}
+		}
+		int leftArray[] = new int[j];
+		int rightArray[]= new int[k];
+		int p=0,q=0;
+		for(int i=0;i<length;i++){
+			if(preOrder[i]<head){
+				leftArray[p]=preOrder[i];
+				p++;
+			}
+			else if(preOrder[i]>head){
+				rightArray[q]=preOrder[i];
+				q++;
+			}
+		}
+		if(leftArray.length>1){
+		toPostOrder(leftArray);
+		}else if(leftArray.length==1)
+		{
+			System.out.println("\n"+leftArray[0]+"\n");
+		}
+		if(rightArray.length>1){
+		toPostOrder(rightArray);
+		}
+		else if (rightArray.length==1){
+			System.out.println("\n"+rightArray[0]+"\n");
+		}
+		System.out.println("\n"+head+"\n");
 	}
 
 }
