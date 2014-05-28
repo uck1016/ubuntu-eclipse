@@ -36,12 +36,37 @@ public class BTreeDriver {
 				System.out.println("False, it is NOT a binary Search tree");
 			}
 		}
+		else if(choice.equals("h")){
+			int height=Obj.height(Obj.root);
+			System.out.println("Height of the tree is:"+height);
+		}
+		else if(choice.equalsIgnoreCase("f")){
+			Obj.findLeaves(Obj.root);
+		}
+		else if(choice.equalsIgnoreCase("a")){
+			Node lca=Obj.leastCommonAncestor(new Node(getInput()), new Node(getInput()), Obj.root);
+		    if(lca!=null){
+		    	System.out.println("the least common ancestor is"+ lca.key);
+		    }
+		    else{
+		    	System.out.println("NO COMMON ANCESTOR");
+		    }
+		}
 	}
 
 }
 	public String getChoice(){
 		String input=null;
-		System.out.println("\n Enter 'c' for Binary tree construction\nEnter 'a' for Least common ancestor\nEnter 'ck' to check whether the tree is a Binary search tree or not\nEnter 's' to search for a node\nEnter 'a' to find least common ancestor\nEnter 'e' to exit\nEnter 't' for traversal\n");
+		System.out.println("\nEnter 'c' for Binary tree construction\n"
+				+ "Enter 'a' for Least common ancestor\n"
+				+ "Enter 'ck' to check whether the tree is a Binary search tree or not\n"
+				+ "Enter 's' to search for a node\n"
+				+ "Enter 'a' to find least common ancestor\n"
+				+ "Enter 'h' to calculate the height of the tree\n"
+				+ "Enter 't' for traversal\n"
+				+ "Enter 'd' to calculate the diameter of the tree\n"
+				+ "Enter 'f' to find leaf nodes\n"
+				+ "Enter 'e' to exit\n");
 		System.out.println("Please enter your choice");
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		try {

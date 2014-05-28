@@ -90,5 +90,53 @@ public class BinaryTreeOperations {
 	
 	
 	}
-	
+	public int height(Node head){
+		if(head==null){
+			return -1;
+		}
+		return max(height(head.left), height(head.right))+1;
+	}
+	private int max(int height, int height2) {
+        if(height>height2){
+        	return height;
+        }
+        else if(height<height2){
+        	return height2;
+        }
+        else
+        {
+        	return height;
+        }
+	}
+	public void findLeaves(Node head){
+		if(head!=null){
+			if(head.left==null&&head.right==null){
+				System.out.println(head.key+"\n");
+			}
+			findLeaves(head.left);
+			findLeaves(head.right);
+			}
+		}
+	public Node leastCommonAncestor(Node n1, Node n2, Node head){
+		Node temp=head;
+		if(head==null){
+			return null;
+		}
+		if(n1.equals(temp)||n2.equals(temp)){
+			return temp;
+		}
+		Node lca_left=leastCommonAncestor(n1,n2,temp.left);
+		Node lca_right=leastCommonAncestor(n1,n2,temp.right);
+		if(lca_left!=null&&lca_right!=null){
+			return temp;
+		}
+		if(lca_left!=null){
+			return lca_left;
+		}
+		else{
+			return lca_right;
+		}
+		
+	}
 }
+
