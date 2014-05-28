@@ -21,6 +21,9 @@ public class Test {
 			else if(select==2){
 				BTreeDriver bTreeObject=new BTreeDriver();
 			}
+			else if(select==0){
+				System.exit(0);
+			}
 			
 		}
 }
