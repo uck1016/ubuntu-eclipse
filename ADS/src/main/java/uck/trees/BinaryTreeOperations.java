@@ -2,6 +2,7 @@ package uck.trees;
 
 public class BinaryTreeOperations {
 	Node root;
+	public static int level=-1;
 	public Node constructTree(int[] inOrder, int[] preOrder){
 		int j,k;
 		int[] index=new int[preOrder.length]; 
@@ -111,7 +112,7 @@ public class BinaryTreeOperations {
 	public void findLeaves(Node head){
 		if(head!=null){
 			if(head.left==null&&head.right==null){
-				System.out.println(head.key+"\n");
+				System.out.println(head.key+" level is"+level);
 			}
 			findLeaves(head.left);
 			findLeaves(head.right);
@@ -138,5 +139,19 @@ public class BinaryTreeOperations {
 		}
 		
 	}
+	public int diameter(){
+		Node head=root;
+		if(head.left==null&&head.right!=null){
+			head=head.right;
+			return (height(head.left)+height(head.right)+2);	
+			}
+			else if(head.right==null&&head.left!=null){
+				head=head.left;
+				return (height(head.left)+height(head.right)+2);			
+			}
+			else{	
+		return (height(head.left)+height(head.right)+2);	
+	}
+}
 }
 

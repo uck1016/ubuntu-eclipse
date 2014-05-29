@@ -52,6 +52,10 @@ public class BTreeDriver {
 		    	System.out.println("NO COMMON ANCESTOR");
 		    }
 		}
+		else if(choice.equalsIgnoreCase("d")){
+			int diameter=Obj.diameter();
+			System.out.println("the diameter of the binary tree is:"+ diameter);
+		}
 	}
 
 }
