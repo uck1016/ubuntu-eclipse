@@ -1,17 +1,19 @@
 package uck.miscellaneous;
 
+import uck.standard.utilities.*;
+
 public class MaxSumCircularSubArray {
 StandardIO IO=new StandardIO();
 int length=0;
 int[] input; 
 MaxSumCircularSubArray(){
 	IO.print("Enter the Lenght of the array");
-	length=IO.getInt();
+	length=IO.getInput();
 	input=new int[length];
 	int i=0;
 	while(i<length){
 	IO.print("Enter the "+i+" th Element");
-	input[i]=IO.getInt();
+	input[i]=IO.getInput();
 	i++;
 	}
 	findMaxSum();

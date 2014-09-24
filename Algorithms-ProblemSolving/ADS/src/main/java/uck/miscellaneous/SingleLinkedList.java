@@ -1,4 +1,6 @@
-package uck.questions;
+package uck.miscellaneous;
+
+import uck.standard.utilities.*;
 
 public class SingleLinkedList {
 	StandardIO IO=new StandardIO();

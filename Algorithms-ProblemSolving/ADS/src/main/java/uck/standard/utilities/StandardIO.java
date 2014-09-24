@@ -37,4 +37,15 @@ public class StandardIO {
 	public void printInt(int value){
 		System.out.println(value);
 	}
+	public int[] getArrayElements(){
+		int length;
+		print("Enter the length of the array");
+		length=getInput();
+		int inputArray[]=new int[length];
+		for(int i=0;i<length;i++){
+			print("Enter the "+i+"th element");
+			inputArray[i]=getInput();
+		}
+		return inputArray;
+	}
 }

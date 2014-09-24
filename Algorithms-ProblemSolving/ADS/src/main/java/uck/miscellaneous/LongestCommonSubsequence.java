@@ -1,5 +1,7 @@
 package uck.miscellaneous;
 
+import uck.standard.utilities.*;
+
 public class LongestCommonSubsequence {
 	StandardIO IO=new StandardIO();
 	int[] s1;
@@ -8,18 +10,18 @@ public class LongestCommonSubsequence {
 	int length, length2;
 	public LongestCommonSubsequence(){
 		IO.print("Enter the length of the first sequence");
-		length=IO.getInt();
+		length=IO.getInput();
 		s1=new int[length];
 		for(int i=0;i<length;i++){
 			IO.print("Enter the first sequence elements");
-			s1[i]=IO.getInt();
+			s1[i]=IO.getInput();
 		}
 		IO.print("Enter the length of the second sequence");
-		length2=IO.getInt();
+		length2=IO.getInput();
 		s2=new int[length2];
 		for(int i=0;i<length2;i++){
 			IO.print("Enter the second sequence elements");
-			s2[i]=IO.getInt();
+			s2[i]=IO.getInput();
 		}
 		findSequence(s1,s2);
 		IO.print("the longest common subsequence is");

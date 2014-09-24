@@ -2,7 +2,7 @@ package uck.miscellaneous;
 import uck.standard.utilities.*;
 
 public class Test {
-	StandardIO IO=new StandardIO();
+	uck.standard.utilities.StandardIO IO=new uck.standard.utilities.StandardIO();
 	public static void main(String[] args) {
 		Test Obj=new Test();
 		Obj.run();
@@ -47,9 +47,7 @@ public class Test {
 		 else if(choice.equalsIgnoreCase("e")){
 			 System.exit(0);
 		 }
-		}
-		
-			
+		}			
 	}
 	public int[][] getElements(int rows, int columns){
 		int[][] sortedArray=new int[rows][columns];
@@ -62,5 +60,4 @@ public class Test {
 		}
 		return sortedArray;
 	}
-
 }

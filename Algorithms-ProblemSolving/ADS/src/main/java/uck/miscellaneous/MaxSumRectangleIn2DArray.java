@@ -1,5 +1,7 @@
 package uck.miscellaneous;
 
+import uck.standard.utilities.*;
+
 public class MaxSumRectangleIn2DArray {
 	StandardIO IO=new StandardIO();
 	int topLeft;
@@ -14,16 +16,16 @@ public class MaxSumRectangleIn2DArray {
     int max_sum=Integer.MIN_VALUE;
     MaxSumRectangleIn2DArray(){
     	IO.print("Enter no:of rows");
-    	rows=IO.getInt();
+    	rows=IO.getInput();
     	IO.print("Enter no:of columns");
-    	columns=IO.getInt();
+    	columns=IO.getInput();
     	input=new int[rows][columns];
     	temp=new int[rows];
     	for(int i=0;i<rows;i++){
     		IO.print("Enter the "+i+"th row elements");
     		for(int j=0;j<columns;j++){
     			IO.print("Enter element");
-    			input[i][j]=IO.getInt();
+    			input[i][j]=IO.getInput();
     		}
     	}
     	for(topLeft=0;topLeft<columns;topLeft++){
