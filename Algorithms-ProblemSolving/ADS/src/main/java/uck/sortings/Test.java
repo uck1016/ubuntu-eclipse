@@ -17,10 +17,14 @@ public class Test {
 		while(select !=0){
 			select=getChoice();
 			if(select==1){
-				HeapSort heapObject=new HeapSort(IO.getArrayElements());
+				HeapSort Obj=new HeapSort(IO.getArrayElements());
 			}
 			else if(select==2){
-				//BTreeDriver bTreeObject=new BTreeDriver();
+				QuickSort Obj=new QuickSort(IO.getArrayElements());
+			}
+			else if(select==3){
+				InsertionSort Obj=new InsertionSort();
+				Obj.Sort();
 			}
 			else if(select==0){
 				System.exit(0);
@@ -30,7 +34,7 @@ public class Test {
 }
 	public int getChoice(){
 		String input=null;
-		System.out.println("\nEnter '1' for HeapSort\nEnter '2' for QuickSort\nEnter '0' for exit\n");
+		System.out.println("\nEnter '1' for HeapSort\nEnter '2' for QuickSort\nEnter '3' for InsertionSort\nEnter '0' for exit\n");
 		System.out.println("Please enter your choice");
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		try {
