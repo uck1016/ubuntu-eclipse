@@ -1,5 +1,5 @@
-package uck.miscellaneous;
 
+package uck.miscellaneous;
 import uck.standard.utilities.*;
 
 public class SingleLinkedList {
@@ -55,5 +55,29 @@ public void findMiddleElement() {
 	IO.print("Middle element is");
 	IO.printInt(middle.item);
 }
-
+public void deleteItem(int i){
+	Node temp=head;
+	while(temp.next!=null){
+		Node next=temp.next;
+		if(next.item==i){
+			temp.next=next.next;
+			break;
+		}
+		temp=temp.next;
+	}
+}
+public void removeDuplicates(){
+	Node temp=head;
+	while(temp.next!=null){
+		Node newNode=temp;
+		while(newNode.next!=null){
+			if(newNode.next.item==temp.item){
+				newNode.next=newNode.next.next;
+			}else{
+			newNode=newNode.next;
+		}
+		}
+		temp=temp.next;
+	}
+}
 }

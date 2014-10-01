@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import uck.standard.utilities.StandardIO;
+
 public class BSTDriver {
 
 	public BSTDriver() {
+		StandardIO IO=new StandardIO();
 		BSTOperations Obj=new BSTOperations();
 		String choice=null;
 		while(choice!="e"){
@@ -18,6 +21,9 @@ public class BSTDriver {
 			System.exit(0);
 		}
 		else if(choice.equals("t")){
+			IO.print("InOrder traversal");
+			Obj.inOrderTraversel(Obj.root);
+			IO.print("PreOrder traversal");
 			Obj.preOrderTraversel(Obj.root);
 			System.out.println("\n PostOrder\n");
 			Obj.postOrderTraversel(Obj.root);

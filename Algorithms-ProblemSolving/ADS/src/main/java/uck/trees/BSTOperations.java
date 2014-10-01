@@ -61,52 +61,46 @@ public class BSTOperations {
 			return Search(x,root.left);
 		}
 		else{
-			return	Search(x,root.right);
+			return Search(x,root.right);
 		}
 		}
 	public Node delete(int x, Node head){
 		Node temp, p,q;
+		temp=head;
 		if(isEmpty()){ 
 			return null;
 		}
-		else if(x==head.key){
-			Node lt,rt;
-			lt=head.left;
-			rt=head.right;
-			if(lt==null &&rt==null){
-				System.out.println("no children\n");
-				return null;
+		if(x==temp.key){
+			//case when X has no left and right child
+			if(temp.left==null&temp.right==null){
+				temp = null;
 			}
-			else if(rt==null){
-				temp=lt;
-				return temp;
+			//case when X has no left child
+			else if(temp.left==null){
+				 temp=temp.right;
 			}
-			else if(lt==null){
-				temp=rt;
-				return temp;
+			//case when X has no right child
+			else if(temp.right==null){
+				 temp=temp.left;
 			}
+			//case when X has both child's
 			else{
-				temp=rt;
-				p=rt;
-				while(temp.left!=null){
-					p=temp;
-					temp=temp.left;
+				p=temp.right;
+				while(p.left!=null){
+					p=p.left;
 				}
-				temp.left=lt;
-				p.left=null;
-				return temp;
+				temp.key=p.key;
+				temp.right=delete(p.key, temp.right);
 			}
+		}else if(x<temp.key){
+			temp.left=delete(x,temp.left);
 		}
-		if(x<head.key){
-			q= delete(x, head.left);
-			head.left=q;
+		else if(x>temp.key){
+			temp.right=delete(x, temp.right);
 		}
-		else{
-			q=delete(x,head.right);
-			head.right=q;
-		}
-		return head;
+		return temp;
 	}
+
 	public Node LeastCommonAncestor(Node n1, Node n2){
 		Node temp;
 		temp=root;
