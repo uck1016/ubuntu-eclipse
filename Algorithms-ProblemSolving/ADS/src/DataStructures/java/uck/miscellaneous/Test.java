@@ -51,7 +51,7 @@ public class Test {
 	}
 	public int[][] getElements(int rows, int columns){
 		int[][] sortedArray=new int[rows][columns];
-		IO.print("please enter the row and columns elemets in incresing order");
+		IO.print("please enter the row and columns elements in increasing order");
 		for(int i=0;i<rows;i++){
 			IO.print("Eneter the"+i+"th row elements");
 			for(int j=0;j<columns;j++){

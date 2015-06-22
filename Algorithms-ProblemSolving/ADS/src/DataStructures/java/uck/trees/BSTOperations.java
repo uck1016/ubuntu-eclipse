@@ -1,5 +1,5 @@
 package uck.trees;
-
+//BSTOperations class exposes the basic operations of insert, search, delete& traversal performed on a Binary Search Tree
 public class BSTOperations {
 	Node root;
 	public void insert (int x)
@@ -65,7 +65,7 @@ public class BSTOperations {
 		}
 		}
 	public Node delete(int x, Node head){
-		Node temp, p,q;
+		Node temp, p;
 		temp=head;
 		if(isEmpty()){ 
 			return null;
@@ -83,7 +83,7 @@ public class BSTOperations {
 			else if(temp.right==null){
 				 temp=temp.left;
 			}
-			//case when X has both child's
+			//case when X has both child's, get the least element from the X's right tree.
 			else{
 				p=temp.right;
 				while(p.left!=null){
@@ -96,11 +96,11 @@ public class BSTOperations {
 			temp.left=delete(x,temp.left);
 		}
 		else if(x>temp.key){
-			temp.right=delete(x, temp.right);
+			temp.right=delete(x,temp.right);
 		}
 		return temp;
 	}
-
+//Method to find the least common ancestor of two nodes in a binary search tree.
 	public Node LeastCommonAncestor(Node n1, Node n2){
 		Node temp;
 		temp=root;
@@ -165,5 +165,4 @@ public class BSTOperations {
 		}
 		System.out.println("\n"+head+"\n");
 	}
-
 }
